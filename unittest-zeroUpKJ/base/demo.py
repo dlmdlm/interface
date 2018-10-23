@@ -45,8 +45,8 @@ class RunMain:  # 三个方法都发放进类里面
 #     run = RunMain()
 #     url = "http://m.imooc.com/passport/user/login"
 #     data = {
-#         "username": "13177802129",
-#         "password": "lovehjd1995",
+#         "username": "",
+#         "password": "",
 #         "verify": "",
 #         "referer": "https://m.imooc.com"
 #     }

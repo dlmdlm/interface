@@ -82,8 +82,8 @@ class TestMethod(unittest.TestCase):
     def test_01(self):
         url = "http://m.imooc.com/passport/user/login"
         data = {
-            "username": "13177802129",
-            "password": "lovehjd1995",
+            "username": "131000000",
+            "password": "hhhhhhhh",
             "verify": "",
             "referer": "https://m.imooc.com"
         }
@@ -97,7 +97,7 @@ class TestMethod(unittest.TestCase):
         #     print"测试失败"
         # res = run.run_main(url,"post",data)
 
-        # userid = 13177802129  #把他弄成一个全局变量globals，如下：
+        # userid = 131000000000  #把他弄成一个全局变量globals，如下：
         globals()["userid"] = 1000909  # 这样就弄成一个全局变量了，这个时候在case就可以打印了
 
         @unittest.skip("test_02")
@@ -108,8 +108,8 @@ class TestMethod(unittest.TestCase):
         # print userid
         url = "http://m.imooc.com/passport/user/login"
         data = {
-            "username": "13177802129",
-            "password": "lovehjd1995",
+            "username": "13100000000",
+            "password": "hhhhhhh",
             "verify": "",
             "referer": "https://m.imooc.com"
         }
@@ -147,8 +147,8 @@ RunMain是个class所以要带括号 run=RunMain（），#这样的话，我们�
 代码如下：【
 url = "http://m.imooc.com/passport/user/login"
     data = {
-        "username": "13177802129",
-        "password": "lovehjd1995",
+        "username": "1310000000",
+        "password": "hhhhhhh",
         "verify": "",
         "referer": "https://m.imooc.com"
     }
@@ -245,8 +245,8 @@ HTMLTestRunner.HTMLTestRunner() 里面需要有参数 有流，或者定义一�
     def test_02(self):
         url = "http://m.imooc.com/passport/user/login"
         data = {
-            "username": "13177802129",
-            "password": "lovehjd1995",
+            "username": "13100000",
+            "password": "lllll",
             "verify": "",
             "referer": "https://m.imooc.com"
         }

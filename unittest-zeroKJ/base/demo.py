@@ -45,8 +45,8 @@ if __name__ == "__main__":
     run = RunMain()
     url = "http://m.imooc.com/passport/user/login"
     data = {
-        "username": "13177802129",
-        "password": "lovehjd1995",
+        "username": "13100000000",
+        "password": "hhhhhhh",
         "verify": "",
         "referer": "https://m.imooc.com"
     }

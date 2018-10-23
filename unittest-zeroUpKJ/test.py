@@ -74,8 +74,8 @@ class TestMethod(unittest.TestCase):
     def test_01(self):
         url = "http://m.imooc.com/passport/user/login"
         data = {
-            "username": "13177802129",
-            "password": "lovehjd1995",
+            "username": "",
+            "password": "",
             "verify": "",
             "referer": "https://m.imooc.com",
             # "status": 10001
@@ -97,8 +97,8 @@ class TestMethod(unittest.TestCase):
     def test_02(self):
         url = "http://m.imooc.com/passport/user/login"
         data = {
-            "username": "13177802129",
-            "password": "lovehjd1995",
+            "username": "",
+            "password": "",
             "verify": "",
             "referer": "https://m.imooc.com"
         }
@@ -114,9 +114,9 @@ class TestMethod(unittest.TestCase):
             # 主贷人证件类型
             "certType": "身份证",
             # 主贷人证件号码
-            "certNo": "360732199510112578",
+            "certNo": "",
             # 主贷人手机号
-            "phone": "13166392132",
+            "phone": "",
             # 主贷人婚姻状况
             "maritalStatus": "否",
             # 主贷人附件列表

@@ -19,8 +19,8 @@ import json
 import requests
 url="https://api.github.com/user"
 data = {
-    "user":"dlmdlm",
-    "pass":"mf1996106"
+    "user":"hhhh",
+    "pass":"jjjjj"
 }
 res = requests.get(url='https://api.github.com/user', data=data)
 print res
@@ -62,8 +62,8 @@ class RunMain:
 if __name__ == '__main__':
     url = "http://m.imooc.com/passport/user/login"
     data = {
-        "username": "13177802129",
-        "password": "lovehjd1995",
+        "username": "1310000000",
+        "password": "llll",
         "verify": "",
         "referer": "https://m.imooc.com"
     }

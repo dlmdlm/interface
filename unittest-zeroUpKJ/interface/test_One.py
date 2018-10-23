@@ -31,8 +31,8 @@ class TestOne(unittest.TestCase):
     def test_01(self):
         url = "http://m.imooc.com/passport/user/login"
         data = {
-            "username": "13177802129",
-            "password": "lovehjd1995",
+            "username": "1310000000",
+            "password": "hhhhhh",
             "verify": "",
             "referer": "https://m.imooc.com",
             # "status": 10001
@@ -54,8 +54,8 @@ class TestOne(unittest.TestCase):
     def test_02(self):
         url = "http://m.imooc.com/passport/user/login"
         data = {
-            "username": "13177802129",
-            "password": "lovehjd1995",
+            "username": "1310000000",
+            "password": "hhhhhhh",
             "verify": "",
             "referer": "https://m.imooc.com"
         }
@@ -71,9 +71,9 @@ class TestOne(unittest.TestCase):
             # 主贷人证件类型
             "certType": "身份证",
             # 主贷人证件号码
-            "certNo": "360732199510112578",
+            "certNo": "1",
             # 主贷人手机号
-            "phone": "13166392132",
+            "phone": "1",
             # 主贷人婚姻状况
             "maritalStatus": "否",
             # 主贷人附件列表
@@ -144,11 +144,11 @@ class TestOne(unittest.TestCase):
                 },
                 {
                     "cm_type": "购车人",
-                    "o_vip_name": "邓丽梅",
-                    "o_vip_card": "360732199310062621",
-                    "o_vip_tel": "13177802129",
+                    "o_vip_name": "",
+                    "o_vip_card": "",
+                    "o_vip_tel": "",
                     "o_vip_marriagestatus": "未婚单身",
-                    "cm_card_no": "6217002020021597265",
+                    "cm_card_no": "",
                     "nationality": "汉族",
                     "cert_start_date": "2013-09-03",
                     "cert_start_end": "2023-09-03",
