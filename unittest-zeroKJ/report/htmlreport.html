@@ -1,0 +1,2026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>this is first report</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>this is first report</h1>
+<p class='attribute'><strong>Start Time:</strong> 2018-10-22 20:36:28</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.416000</p>
+<p class='attribute'><strong>Status:</strong> Pass 3</p>
+
+<p class='description'></p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>TestMethod</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',3)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_01</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: {"infoContent":"jvg3rRf3LWh2WNWdtL3oPPDAKPgumr6\/NQIdU9mmP1IeV1sVMb2iDuX0jgLBqavGYE0mnAYQ2QxCjsUSSUZV\/Fmf0Zo0kUmSKWvfYQ07LRKHIZ43TOvU3UHei4w0PiMemb5VCoNjrTzgEAyAxDKMJJzbUnfr7KKyo6Mv+ljPgyo=","infoSign":"e7nsgIzVH0V6qu62dY+JuxgoEMrFABfQxQ3X5CibftPER7OETM35rujAPv36zpNMZ5QT4XK6uy8V61YjPFlcYQSHT0QUh9AdlNsK\/9Qv0bknXBT725V3GrTStaBFrJmfu6vDgxSKxt0m12fwLPB8mfnpHIqRfsXi\/HyeryLVCQA="}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_02</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: {"infoContent":"DeNq29GOOO287cpi04LyJiLwu3PmzbELaF0oLzE9NdyJAe\/p22fgPSLkccyfA1QGLq3H5JDWH\/hdnv19L14yknALrQbPucWouVjv59BAFVbQ6GP7rK4q6zkvTxlCKOtPYCsqI1rK1PbBJM8sNeMdoTpZs\/\/X93+Cgzpvnf6Z3gw=","infoSign":"SqD6LuJzHR3fTwj\/GeYdq2xP+xVHwYbdXPyERLboX93Xq8ToEmNPUBkxcVQWOfhrJOpdBmvyccGxJxtaiBLONyySOAUwpIZHtJ\/FFv7Se\/IbgTg17lCl7iEd8ZEsxKqJ5T3RHJYYbjbWD614UVEmkcjtFN15uRuJxVd0PvSk\/C4="}
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;系统发生错误&lt;/title&gt;
+    &lt;meta name="robots" content="noindex,nofollow" /&gt;
+    &lt;style&gt;
+        /* Base */
+        body {
+            color: #333;
+            font: 16px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre &gt; pre {
+            padding: 0;
+            margin: 0;
+        }
+    
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 56px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="echo"&gt;
+            &lt;/div&gt;
+        &lt;div class="exception"&gt;
+    &lt;div class="message"&gt;
+        
+            &lt;div class="info"&gt;
+                &lt;div&gt;
+                    &lt;h2&gt;[8]&amp;nbsp;&lt;abbr title="think\exception\ErrorException"&gt;ErrorException&lt;/abbr&gt; in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php line 92"&gt;Job.php line 92&lt;/a&gt;&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div&gt;&lt;h1&gt;未定义数组索引: requestSeqNo&lt;/h1&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        
+    &lt;/div&gt;
+	        &lt;div class="source-code"&gt;
+            &lt;pre class="prettyprint lang-php"&gt;&lt;ol start="83"&gt;&lt;li class="line-83"&gt;&lt;code&gt;	/**
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-84"&gt;&lt;code&gt;	 * 验签解密 
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-85"&gt;&lt;code&gt;	 * 
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-86"&gt;&lt;code&gt;	 * @return mixed
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-87"&gt;&lt;code&gt;	 */
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-88"&gt;&lt;code&gt;	protected function signParseData()
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-89"&gt;&lt;code&gt;	{
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-90"&gt;&lt;code&gt;		// 验签数据
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-91"&gt;&lt;code&gt;		$verifyData = [
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-92"&gt;&lt;code&gt;			'requestSeqNo' =&amp;gt; $this-&amp;gt;requestData['requestSeqNo'],
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-93"&gt;&lt;code&gt;			'partnerCode' =&amp;gt; $this-&amp;gt;requestData['partnerCode'],
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-94"&gt;&lt;code&gt;			'interfaceCode' =&amp;gt; $this-&amp;gt;requestData['interfaceCode'],
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-95"&gt;&lt;code&gt;			'interfaceVersion' =&amp;gt; $this-&amp;gt;requestData['interfaceVersion'],
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-96"&gt;&lt;code&gt;			'infoContent' =&amp;gt; $this-&amp;gt;requestData['infoContent']
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-97"&gt;&lt;code&gt;		];
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-98"&gt;&lt;code&gt;		// 初始化验签
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-99"&gt;&lt;code&gt;		$signrea = new SignRsa($this-&amp;gt;requestData['partnerCode']);
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-100"&gt;&lt;code&gt;		//获取验签解密结果
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-101"&gt;&lt;code&gt;		$paseresult = $signrea-&amp;gt;parsePost($verifyData, $this-&amp;gt;requestData['infoSign']);
+&lt;/code&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+	        &lt;div class="trace"&gt;
+            &lt;h2&gt;Call Stack&lt;/h2&gt;
+            &lt;ol&gt;
+                &lt;li&gt;in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php line 92"&gt;Job.php line 92&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Error"&gt;Error&lt;/abbr&gt;::appError(8, '&lt;a class="toggle" title="Undefined index: requestSeqNo"&gt;Undefined index: req...&lt;/a&gt;', '&lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php"&gt;/home/wwwroot/chedai...&lt;/a&gt;', 92, []) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php line 92"&gt;Job.php line 92&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="app\api\controller\jobs\Job"&gt;Job&lt;/abbr&gt;-&gt;signParseData() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php line 50"&gt;Job.php line 50&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="app\api\controller\jobs\Job"&gt;Job&lt;/abbr&gt;-&gt;__construct(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;))                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="ReflectionClass"&gt;ReflectionClass&lt;/abbr&gt;-&gt;newInstanceArgs([&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)]) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 439"&gt;Container.php line 439&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Container"&gt;Container&lt;/abbr&gt;-&gt;invokeClass('&lt;a class="toggle" title="app\api\controller\jobs\Job"&gt;app\api\controller\j...&lt;/a&gt;', []) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 284"&gt;Container.php line 284&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Container"&gt;Container&lt;/abbr&gt;-&gt;make('&lt;a class="toggle" title="app\api\controller\jobs\Job"&gt;app\api\controller\j...&lt;/a&gt;') in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 516"&gt;Container.php line 516&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Container"&gt;Container&lt;/abbr&gt;-&gt;__get('&lt;a class="toggle" title="app\api\controller\jobs\Job"&gt;app\api\controller\j...&lt;/a&gt;') in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/App.php line 730"&gt;App.php line 730&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\App"&gt;App&lt;/abbr&gt;-&gt;controller('jobs.job', 'controller', &lt;em&gt;false&lt;/em&gt;, 'Error') in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/route/dispatch/Module.php line 93"&gt;Module.php line 93&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\route\dispatch\Module"&gt;Module&lt;/abbr&gt;-&gt;exec() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/route/Dispatch.php line 167"&gt;Dispatch.php line 167&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\route\Dispatch"&gt;Dispatch&lt;/abbr&gt;-&gt;run() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/App.php line 432"&gt;App.php line 432&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\App"&gt;App&lt;/abbr&gt;-&gt;think\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;null&lt;/em&gt;)                &lt;/li&gt;
+                                &lt;li&gt;
+                at call_user_func_array(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), [&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;null&lt;/em&gt;]) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Middleware.php line 185"&gt;Middleware.php line 185&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Middleware"&gt;Middleware&lt;/abbr&gt;-&gt;think\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;))                &lt;/li&gt;
+                                &lt;li&gt;
+                at call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Middleware.php line 130"&gt;Middleware.php line 130&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Middleware"&gt;Middleware&lt;/abbr&gt;-&gt;dispatch(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/App.php line 435"&gt;App.php line 435&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\App"&gt;App&lt;/abbr&gt;-&gt;run() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public/index.php line 20"&gt;index.php line 20&lt;/a&gt;                &lt;/li&gt;
+                            &lt;/ol&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+        
+    
+        &lt;div class="exception-var"&gt;
+        &lt;h2&gt;Environment Variables&lt;/h2&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;GET Data&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;POST Data&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Files&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Cookies&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Session&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Server/Request Data&lt;/caption&gt;
+            &lt;tbody&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;USER&lt;/td&gt;
+                    &lt;td&gt;
+                        www                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HOME&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/www                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_TRANSFER_ENCODING&lt;/td&gt;
+                    &lt;td&gt;
+                        chunked                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_USER_AGENT&lt;/td&gt;
+                    &lt;td&gt;
+                        python-requests/2.19.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_ACCEPT&lt;/td&gt;
+                    &lt;td&gt;
+                        */*                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_ACCEPT_ENCODING&lt;/td&gt;
+                    &lt;td&gt;
+                        gzip, deflate                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_CONNECTION&lt;/td&gt;
+                    &lt;td&gt;
+                        keep-alive                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_HOST&lt;/td&gt;
+                    &lt;td&gt;
+                        chedai.picc2.dev.com:88                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;PHP_ADMIN_VALUE&lt;/td&gt;
+                    &lt;td&gt;
+                        open_basedir=/home/wwwroot/:/tmp/:/proc/                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REDIRECT_STATUS&lt;/td&gt;
+                    &lt;td&gt;
+                        200                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_NAME&lt;/td&gt;
+                    &lt;td&gt;
+                        chedai.picc2.dev.com                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_PORT&lt;/td&gt;
+                    &lt;td&gt;
+                        88                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_ADDR&lt;/td&gt;
+                    &lt;td&gt;
+                        120.27.249.223                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REMOTE_PORT&lt;/td&gt;
+                    &lt;td&gt;
+                        39809                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REMOTE_ADDR&lt;/td&gt;
+                    &lt;td&gt;
+                        183.134.198.54                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_SOFTWARE&lt;/td&gt;
+                    &lt;td&gt;
+                        nginx/1.12.2                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;GATEWAY_INTERFACE&lt;/td&gt;
+                    &lt;td&gt;
+                        CGI/1.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_SCHEME&lt;/td&gt;
+                    &lt;td&gt;
+                        http                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_PROTOCOL&lt;/td&gt;
+                    &lt;td&gt;
+                        HTTP/1.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;DOCUMENT_ROOT&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;DOCUMENT_URI&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_URI&lt;/td&gt;
+                    &lt;td&gt;
+                        /api/jobs/channel                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SCRIPT_NAME&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;CONTENT_LENGTH&lt;/td&gt;
+                    &lt;td&gt;
+                        450                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;CONTENT_TYPE&lt;/td&gt;
+                    &lt;td&gt;
+                                            &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_METHOD&lt;/td&gt;
+                    &lt;td&gt;
+                        POST                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;QUERY_STRING&lt;/td&gt;
+                    &lt;td&gt;
+                        s=//api/jobs/channel                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SCRIPT_FILENAME&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public/index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;FCGI_ROLE&lt;/td&gt;
+                    &lt;td&gt;
+                        RESPONDER                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;PHP_SELF&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_TIME_FLOAT&lt;/td&gt;
+                    &lt;td&gt;
+                        1540211741.3771                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_TIME&lt;/td&gt;
+                    &lt;td&gt;
+                        1540211741                    &lt;/td&gt;
+                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Environment Variables&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;ThinkPHP Constants&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+            &lt;/div&gt;
+    
+    &lt;div class="copyright"&gt;
+        &lt;a title="官方网站" href="http://www.thinkphp.cn"&gt;ThinkPHP&lt;/a&gt; 
+        &lt;span&gt;V5.1.24&lt;/span&gt; 
+        &lt;span&gt;{ 十年磨一剑-为API开发设计的高性能框架 }&lt;/span&gt;
+    &lt;/div&gt;
+        &lt;script&gt;
+        var LINE = 92;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i &lt; eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i &lt; files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') &gt;= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_03</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: {"infoContent":"QNjJ8WYDVmik5eI0ZlnXvbl5qi7QD1ciMKGerO1Mx0DNTbt7H4i+VzOdeVs8rd5mtBTgkiIWxj26iq4KBs1EafG4jmLZcP0gp7b2gE+CmqAAxu89uE\/0qiNIXEBMI3kBHuEi2L1eUGzocN8w9UM0w4hYy8Lg4ARHJ6ApGzubTrg=","infoSign":"Hkp0EcWwh0Xa4AOKmVkp6lwaBa4YLQDZcV9cyEt+S7jCVeUo2xMj2We0k9YbgClJk2BhLZka9co66n1xzv1A9HVbdygKLolbnliflva4TFCusUUQdXYsphUmAH+i5aJfgeu5JIAr9uVfRHV3fdLitQsja+R7qn2qPE3PN41onLc="}
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;系统发生错误&lt;/title&gt;
+    &lt;meta name="robots" content="noindex,nofollow" /&gt;
+    &lt;style&gt;
+        /* Base */
+        body {
+            color: #333;
+            font: 16px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre &gt; pre {
+            padding: 0;
+            margin: 0;
+        }
+    
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 56px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="echo"&gt;
+            &lt;/div&gt;
+        &lt;div class="exception"&gt;
+    &lt;div class="message"&gt;
+        
+            &lt;div class="info"&gt;
+                &lt;div&gt;
+                    &lt;h2&gt;[8]&amp;nbsp;&lt;abbr title="think\exception\ErrorException"&gt;ErrorException&lt;/abbr&gt; in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php line 92"&gt;Job.php line 92&lt;/a&gt;&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div&gt;&lt;h1&gt;未定义数组索引: requestSeqNo&lt;/h1&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        
+    &lt;/div&gt;
+	        &lt;div class="source-code"&gt;
+            &lt;pre class="prettyprint lang-php"&gt;&lt;ol start="83"&gt;&lt;li class="line-83"&gt;&lt;code&gt;	/**
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-84"&gt;&lt;code&gt;	 * 验签解密 
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-85"&gt;&lt;code&gt;	 * 
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-86"&gt;&lt;code&gt;	 * @return mixed
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-87"&gt;&lt;code&gt;	 */
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-88"&gt;&lt;code&gt;	protected function signParseData()
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-89"&gt;&lt;code&gt;	{
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-90"&gt;&lt;code&gt;		// 验签数据
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-91"&gt;&lt;code&gt;		$verifyData = [
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-92"&gt;&lt;code&gt;			'requestSeqNo' =&amp;gt; $this-&amp;gt;requestData['requestSeqNo'],
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-93"&gt;&lt;code&gt;			'partnerCode' =&amp;gt; $this-&amp;gt;requestData['partnerCode'],
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-94"&gt;&lt;code&gt;			'interfaceCode' =&amp;gt; $this-&amp;gt;requestData['interfaceCode'],
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-95"&gt;&lt;code&gt;			'interfaceVersion' =&amp;gt; $this-&amp;gt;requestData['interfaceVersion'],
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-96"&gt;&lt;code&gt;			'infoContent' =&amp;gt; $this-&amp;gt;requestData['infoContent']
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-97"&gt;&lt;code&gt;		];
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-98"&gt;&lt;code&gt;		// 初始化验签
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-99"&gt;&lt;code&gt;		$signrea = new SignRsa($this-&amp;gt;requestData['partnerCode']);
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-100"&gt;&lt;code&gt;		//获取验签解密结果
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-101"&gt;&lt;code&gt;		$paseresult = $signrea-&amp;gt;parsePost($verifyData, $this-&amp;gt;requestData['infoSign']);
+&lt;/code&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+	        &lt;div class="trace"&gt;
+            &lt;h2&gt;Call Stack&lt;/h2&gt;
+            &lt;ol&gt;
+                &lt;li&gt;in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php line 92"&gt;Job.php line 92&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Error"&gt;Error&lt;/abbr&gt;::appError(8, '&lt;a class="toggle" title="Undefined index: requestSeqNo"&gt;Undefined index: req...&lt;/a&gt;', '&lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php"&gt;/home/wwwroot/chedai...&lt;/a&gt;', 92, []) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php line 92"&gt;Job.php line 92&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="app\api\controller\jobs\Job"&gt;Job&lt;/abbr&gt;-&gt;signParseData() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/application/api/controller/jobs/Job.php line 50"&gt;Job.php line 50&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="app\api\controller\jobs\Job"&gt;Job&lt;/abbr&gt;-&gt;__construct(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;))                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="ReflectionClass"&gt;ReflectionClass&lt;/abbr&gt;-&gt;newInstanceArgs([&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)]) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 439"&gt;Container.php line 439&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Container"&gt;Container&lt;/abbr&gt;-&gt;invokeClass('&lt;a class="toggle" title="app\api\controller\jobs\Job"&gt;app\api\controller\j...&lt;/a&gt;', []) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 284"&gt;Container.php line 284&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Container"&gt;Container&lt;/abbr&gt;-&gt;make('&lt;a class="toggle" title="app\api\controller\jobs\Job"&gt;app\api\controller\j...&lt;/a&gt;') in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 516"&gt;Container.php line 516&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Container"&gt;Container&lt;/abbr&gt;-&gt;__get('&lt;a class="toggle" title="app\api\controller\jobs\Job"&gt;app\api\controller\j...&lt;/a&gt;') in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/App.php line 730"&gt;App.php line 730&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\App"&gt;App&lt;/abbr&gt;-&gt;controller('jobs.job', 'controller', &lt;em&gt;false&lt;/em&gt;, 'Error') in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/route/dispatch/Module.php line 93"&gt;Module.php line 93&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\route\dispatch\Module"&gt;Module&lt;/abbr&gt;-&gt;exec() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/route/Dispatch.php line 167"&gt;Dispatch.php line 167&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\route\Dispatch"&gt;Dispatch&lt;/abbr&gt;-&gt;run() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/App.php line 432"&gt;App.php line 432&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\App"&gt;App&lt;/abbr&gt;-&gt;think\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;null&lt;/em&gt;)                &lt;/li&gt;
+                                &lt;li&gt;
+                at call_user_func_array(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), [&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;null&lt;/em&gt;]) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Middleware.php line 185"&gt;Middleware.php line 185&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Middleware"&gt;Middleware&lt;/abbr&gt;-&gt;think\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;))                &lt;/li&gt;
+                                &lt;li&gt;
+                at call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Middleware.php line 130"&gt;Middleware.php line 130&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Middleware"&gt;Middleware&lt;/abbr&gt;-&gt;dispatch(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/App.php line 435"&gt;App.php line 435&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\App"&gt;App&lt;/abbr&gt;-&gt;run() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public/index.php line 20"&gt;index.php line 20&lt;/a&gt;                &lt;/li&gt;
+                            &lt;/ol&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+        
+    
+        &lt;div class="exception-var"&gt;
+        &lt;h2&gt;Environment Variables&lt;/h2&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;GET Data&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;POST Data&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Files&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Cookies&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Session&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Server/Request Data&lt;/caption&gt;
+            &lt;tbody&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;USER&lt;/td&gt;
+                    &lt;td&gt;
+                        www                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HOME&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/www                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_TRANSFER_ENCODING&lt;/td&gt;
+                    &lt;td&gt;
+                        chunked                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_USER_AGENT&lt;/td&gt;
+                    &lt;td&gt;
+                        python-requests/2.19.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_ACCEPT&lt;/td&gt;
+                    &lt;td&gt;
+                        */*                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_ACCEPT_ENCODING&lt;/td&gt;
+                    &lt;td&gt;
+                        gzip, deflate                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_CONNECTION&lt;/td&gt;
+                    &lt;td&gt;
+                        keep-alive                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_HOST&lt;/td&gt;
+                    &lt;td&gt;
+                        chedai.picc2.dev.com:88                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;PHP_ADMIN_VALUE&lt;/td&gt;
+                    &lt;td&gt;
+                        open_basedir=/home/wwwroot/:/tmp/:/proc/                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REDIRECT_STATUS&lt;/td&gt;
+                    &lt;td&gt;
+                        200                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_NAME&lt;/td&gt;
+                    &lt;td&gt;
+                        chedai.picc2.dev.com                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_PORT&lt;/td&gt;
+                    &lt;td&gt;
+                        88                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_ADDR&lt;/td&gt;
+                    &lt;td&gt;
+                        120.27.249.223                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REMOTE_PORT&lt;/td&gt;
+                    &lt;td&gt;
+                        39873                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REMOTE_ADDR&lt;/td&gt;
+                    &lt;td&gt;
+                        183.134.198.54                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_SOFTWARE&lt;/td&gt;
+                    &lt;td&gt;
+                        nginx/1.12.2                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;GATEWAY_INTERFACE&lt;/td&gt;
+                    &lt;td&gt;
+                        CGI/1.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_SCHEME&lt;/td&gt;
+                    &lt;td&gt;
+                        http                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_PROTOCOL&lt;/td&gt;
+                    &lt;td&gt;
+                        HTTP/1.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;DOCUMENT_ROOT&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;DOCUMENT_URI&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_URI&lt;/td&gt;
+                    &lt;td&gt;
+                        /api/jobs/channel                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SCRIPT_NAME&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;CONTENT_LENGTH&lt;/td&gt;
+                    &lt;td&gt;
+                        421                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;CONTENT_TYPE&lt;/td&gt;
+                    &lt;td&gt;
+                                            &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_METHOD&lt;/td&gt;
+                    &lt;td&gt;
+                        POST                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;QUERY_STRING&lt;/td&gt;
+                    &lt;td&gt;
+                        s=//api/jobs/channel                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SCRIPT_FILENAME&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public/index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;FCGI_ROLE&lt;/td&gt;
+                    &lt;td&gt;
+                        RESPONDER                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;PHP_SELF&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_TIME_FLOAT&lt;/td&gt;
+                    &lt;td&gt;
+                        1540211741.5305                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_TIME&lt;/td&gt;
+                    &lt;td&gt;
+                        1540211741                    &lt;/td&gt;
+                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Environment Variables&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;ThinkPHP Constants&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+            &lt;/div&gt;
+    
+    &lt;div class="copyright"&gt;
+        &lt;a title="官方网站" href="http://www.thinkphp.cn"&gt;ThinkPHP&lt;/a&gt; 
+        &lt;span&gt;V5.1.24&lt;/span&gt; 
+        &lt;span&gt;{ 十年磨一剑-为API开发设计的高性能框架 }&lt;/span&gt;
+    &lt;/div&gt;
+        &lt;script&gt;
+        var LINE = 92;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i &lt; eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i &lt; files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') &gt;= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;系统发生错误&lt;/title&gt;
+    &lt;meta name="robots" content="noindex,nofollow" /&gt;
+    &lt;style&gt;
+        /* Base */
+        body {
+            color: #333;
+            font: 16px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre &gt; pre {
+            padding: 0;
+            margin: 0;
+        }
+    
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 56px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="echo"&gt;
+            &lt;/div&gt;
+        &lt;div class="exception"&gt;
+    &lt;div class="message"&gt;
+        
+            &lt;div class="info"&gt;
+                &lt;div&gt;
+                    &lt;h2&gt;[0]&amp;nbsp;&lt;abbr title="InvalidArgumentException"&gt;InvalidArgumentException&lt;/abbr&gt; in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 480"&gt;Container.php line 480&lt;/a&gt;&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div&gt;&lt;h1&gt;方法参数错误:data&lt;/h1&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        
+    &lt;/div&gt;
+	        &lt;div class="source-code"&gt;
+            &lt;pre class="prettyprint lang-php"&gt;&lt;ol start="471"&gt;&lt;li class="line-471"&gt;&lt;code&gt;            } elseif (1 == $type &amp;amp;&amp;amp; !empty($vars)) {
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-472"&gt;&lt;code&gt;                $args[] = array_shift($vars);
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-473"&gt;&lt;code&gt;            } elseif (0 == $type &amp;amp;&amp;amp; isset($vars[$name])) {
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-474"&gt;&lt;code&gt;                $args[] = $vars[$name];
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-475"&gt;&lt;code&gt;            } elseif (0 == $type &amp;amp;&amp;amp; isset($vars[$lowerName])) {
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-476"&gt;&lt;code&gt;                $args[] = $vars[$lowerName];
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-477"&gt;&lt;code&gt;            } elseif ($param-&amp;gt;isDefaultValueAvailable()) {
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-478"&gt;&lt;code&gt;                $args[] = $param-&amp;gt;getDefaultValue();
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-479"&gt;&lt;code&gt;            } else {
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-480"&gt;&lt;code&gt;                throw new InvalidArgumentException('method param miss:' . $name);
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-481"&gt;&lt;code&gt;            }
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-482"&gt;&lt;code&gt;        }
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-483"&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-484"&gt;&lt;code&gt;        return $args;
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-485"&gt;&lt;code&gt;    }
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-486"&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-487"&gt;&lt;code&gt;    /**
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-488"&gt;&lt;code&gt;     * 获取对象类型的参数值
+&lt;/code&gt;&lt;/li&gt;&lt;li class="line-489"&gt;&lt;code&gt;     * @access protected
+&lt;/code&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+	        &lt;div class="trace"&gt;
+            &lt;h2&gt;Call Stack&lt;/h2&gt;
+            &lt;ol&gt;
+                &lt;li&gt;in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 480"&gt;Container.php line 480&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Container"&gt;Container&lt;/abbr&gt;-&gt;bindParams(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="ReflectionMethod"&gt;ReflectionMethod&lt;/abbr&gt;), ['name' =&gt; '&lt;a class="toggle" title="getDecryptResponseData"&gt;getDecryptResponseDa...&lt;/a&gt;']) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Container.php line 393"&gt;Container.php line 393&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Container"&gt;Container&lt;/abbr&gt;-&gt;invokeReflectMethod(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="app\api\controller\jobs\Test"&gt;Test&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="ReflectionMethod"&gt;ReflectionMethod&lt;/abbr&gt;), ['name' =&gt; '&lt;a class="toggle" title="getDecryptResponseData"&gt;getDecryptResponseDa...&lt;/a&gt;']) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/route/dispatch/Module.php line 129"&gt;Module.php line 129&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\route\dispatch\Module"&gt;Module&lt;/abbr&gt;-&gt;think\route\dispatch\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;null&lt;/em&gt;)                &lt;/li&gt;
+                                &lt;li&gt;
+                at call_user_func_array(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), [&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;null&lt;/em&gt;]) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Middleware.php line 185"&gt;Middleware.php line 185&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Middleware"&gt;Middleware&lt;/abbr&gt;-&gt;think\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;))                &lt;/li&gt;
+                                &lt;li&gt;
+                at call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Middleware.php line 130"&gt;Middleware.php line 130&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Middleware"&gt;Middleware&lt;/abbr&gt;-&gt;dispatch(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), 'controller') in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/route/dispatch/Module.php line 134"&gt;Module.php line 134&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\route\dispatch\Module"&gt;Module&lt;/abbr&gt;-&gt;exec() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/route/Dispatch.php line 167"&gt;Dispatch.php line 167&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\route\Dispatch"&gt;Dispatch&lt;/abbr&gt;-&gt;run() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/App.php line 432"&gt;App.php line 432&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\App"&gt;App&lt;/abbr&gt;-&gt;think\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;null&lt;/em&gt;)                &lt;/li&gt;
+                                &lt;li&gt;
+                at call_user_func_array(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), [&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;null&lt;/em&gt;]) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Middleware.php line 185"&gt;Middleware.php line 185&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Middleware"&gt;Middleware&lt;/abbr&gt;-&gt;think\{closure}(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;))                &lt;/li&gt;
+                                &lt;li&gt;
+                at call_user_func(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="Closure"&gt;Closure&lt;/abbr&gt;), &lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/Middleware.php line 130"&gt;Middleware.php line 130&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\Middleware"&gt;Middleware&lt;/abbr&gt;-&gt;dispatch(&lt;em&gt;object&lt;/em&gt;(&lt;abbr title="think\Request"&gt;Request&lt;/abbr&gt;)) in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/thinkphp/library/think/App.php line 435"&gt;App.php line 435&lt;/a&gt;                &lt;/li&gt;
+                                &lt;li&gt;
+                at &lt;abbr title="think\App"&gt;App&lt;/abbr&gt;-&gt;run() in &lt;a class="toggle" title="/home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public/index.php line 20"&gt;index.php line 20&lt;/a&gt;                &lt;/li&gt;
+                            &lt;/ol&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+        
+    
+        &lt;div class="exception-var"&gt;
+        &lt;h2&gt;Environment Variables&lt;/h2&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;GET Data&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;POST Data&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Files&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Cookies&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Session&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Server/Request Data&lt;/caption&gt;
+            &lt;tbody&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;USER&lt;/td&gt;
+                    &lt;td&gt;
+                        www                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HOME&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/www                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_CONTENT_LENGTH&lt;/td&gt;
+                    &lt;td&gt;
+                        0                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_USER_AGENT&lt;/td&gt;
+                    &lt;td&gt;
+                        python-requests/2.19.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_ACCEPT&lt;/td&gt;
+                    &lt;td&gt;
+                        */*                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_ACCEPT_ENCODING&lt;/td&gt;
+                    &lt;td&gt;
+                        gzip, deflate                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_CONNECTION&lt;/td&gt;
+                    &lt;td&gt;
+                        keep-alive                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;HTTP_HOST&lt;/td&gt;
+                    &lt;td&gt;
+                        chedai.picc2.dev.com:88                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;PHP_ADMIN_VALUE&lt;/td&gt;
+                    &lt;td&gt;
+                        open_basedir=/home/wwwroot/:/tmp/:/proc/                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REDIRECT_STATUS&lt;/td&gt;
+                    &lt;td&gt;
+                        200                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_NAME&lt;/td&gt;
+                    &lt;td&gt;
+                        chedai.picc2.dev.com                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_PORT&lt;/td&gt;
+                    &lt;td&gt;
+                        88                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_ADDR&lt;/td&gt;
+                    &lt;td&gt;
+                        120.27.249.223                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REMOTE_PORT&lt;/td&gt;
+                    &lt;td&gt;
+                        39905                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REMOTE_ADDR&lt;/td&gt;
+                    &lt;td&gt;
+                        183.134.198.54                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_SOFTWARE&lt;/td&gt;
+                    &lt;td&gt;
+                        nginx/1.12.2                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;GATEWAY_INTERFACE&lt;/td&gt;
+                    &lt;td&gt;
+                        CGI/1.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_SCHEME&lt;/td&gt;
+                    &lt;td&gt;
+                        http                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SERVER_PROTOCOL&lt;/td&gt;
+                    &lt;td&gt;
+                        HTTP/1.1                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;DOCUMENT_ROOT&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;DOCUMENT_URI&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_URI&lt;/td&gt;
+                    &lt;td&gt;
+                        /api/test/getDecryptResponseData                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SCRIPT_NAME&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;CONTENT_LENGTH&lt;/td&gt;
+                    &lt;td&gt;
+                        0                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;CONTENT_TYPE&lt;/td&gt;
+                    &lt;td&gt;
+                                            &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_METHOD&lt;/td&gt;
+                    &lt;td&gt;
+                        POST                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;QUERY_STRING&lt;/td&gt;
+                    &lt;td&gt;
+                        s=//api/test/getDecryptResponseData                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;SCRIPT_FILENAME&lt;/td&gt;
+                    &lt;td&gt;
+                        /home/wwwroot/chedai-picc2-dev/chedai-picc2/code/public/index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;FCGI_ROLE&lt;/td&gt;
+                    &lt;td&gt;
+                        RESPONDER                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;PHP_SELF&lt;/td&gt;
+                    &lt;td&gt;
+                        /index.php                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_TIME_FLOAT&lt;/td&gt;
+                    &lt;td&gt;
+                        1540211741.608                    &lt;/td&gt;
+                &lt;/tr&gt;
+                                &lt;tr&gt;
+                    &lt;td&gt;REQUEST_TIME&lt;/td&gt;
+                    &lt;td&gt;
+                        1540211741                    &lt;/td&gt;
+                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;Environment Variables&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+                &lt;table&gt;
+                        &lt;caption&gt;ThinkPHP Constants&lt;small&gt;empty&lt;/small&gt;&lt;/caption&gt;
+                    &lt;/table&gt;
+            &lt;/div&gt;
+    
+    &lt;div class="copyright"&gt;
+        &lt;a title="官方网站" href="http://www.thinkphp.cn"&gt;ThinkPHP&lt;/a&gt; 
+        &lt;span&gt;V5.1.24&lt;/span&gt; 
+        &lt;span&gt;{ 十年磨一剑-为API开发设计的高性能框架 }&lt;/span&gt;
+    &lt;/div&gt;
+        &lt;script&gt;
+        var LINE = 480;
+
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i &lt; eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i &lt; files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') &gt;= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
